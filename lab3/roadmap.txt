@@ -1,0 +1,66 @@
+Task 1: Analyzing a Sinusoidal Signal
+
+	1.	Generate a Sinusoidal Signal:
+	•	Frequency (Hz): The number of cycles per second of your sinusoidal wave. You’ll need to decide on a frequency, like 5 Hz.
+	•	Amplitude: The height of the wave. Pick a value, say 1.
+	•	Sampling Rate (Hz): How many samples per second you’ll take. This should be at least twice the frequency of the signal (Nyquist Theorem). For a 5 Hz signal, a safe sampling rate might be 50 Hz.
+Steps:
+	•	Create an array representing time (t) using NumPy’s arange or linspace function. The time array should span the length of the signal.
+	•	Compute the sinusoidal signal using the sine function (np.sin), where the input is 2 * pi * frequency * t.
+	2.	Perform FFT on the Signal:
+	•	FFT (Fast Fourier Transform): This is a function that transforms your time-domain signal into the frequency domain. In Python, you’ll use np.fft.fft.
+	•	Frequency Array: To map the FFT result to actual frequencies, you’ll need to create an array of frequencies (np.fft.fftfreq).
+Steps:
+	•	Pass your sinusoidal signal into np.fft.fft.
+	•	Generate a corresponding frequency array using np.fft.fftfreq.
+	•	You’ll plot the magnitude of the FFT result against the frequency to visualize the frequency spectrum.
+
+Task 2: Analyzing Audio Samples
+
+	1.	Generate Synthetic Audio Samples:
+	•	Frequency: Choose a frequency typical of audio signals, like 440 Hz for the A4 note.
+	•	Sampling Rate: Use a higher sampling rate for audio, like 44.1 kHz (44100 Hz).
+	•	Duration: Decide how long your audio sample will be, say 2 seconds.
+Steps:
+	•	Similar to the sinusoidal signal, create a time array for the duration of your audio signal.
+	•	Generate the audio signal using the sine function with your chosen frequency.
+	2.	Perform FFT on the Audio Signal:
+	•	FFT Process: Same as with the sinusoidal signal, but with audio data.
+	•	Frequency Mapping: Use np.fft.fftfreq to match FFT output to frequencies.
+Steps:
+	•	Pass your audio signal to np.fft.fft.
+	•	Generate the frequency array, and plot the frequency spectrum.
+
+Task 3: Analyzing an ECG Signal
+
+	1.	Generate a Synthetic ECG Signal:
+	•	ECG Characteristics: ECG signals are usually complex and consist of multiple waveforms. You’ll create a simple synthetic version using a combination of sine waves.
+	•	Sampling Rate: ECG data is typically sampled at a rate like 500 Hz.
+	•	Duration: Similar to the audio signal, decide on the duration, say 2 seconds.
+Steps:
+	•	Create the time array and generate a signal by combining multiple sinusoids to mimic an ECG pattern.
+	2.	Perform FFT on the ECG Signal:
+	•	FFT Process: Like before, you’ll use FFT to analyze the frequency components.
+	•	Frequency Mapping: Again, use np.fft.fftfreq to create the frequency array.
+Steps:
+	•	Transform the ECG signal using np.fft.fft.
+	•	Plot the resulting frequency spectrum.
+
+Equations & Functions
+
+	•	Time Array (t):
+	•	t = np.arange(0, duration, 1/sampling_rate)
+	•	Sinusoidal Signal:
+	•	signal = amplitude * np.sin(2 * np.pi * frequency * t)
+	•	FFT Function:
+	•	fft_signal = np.fft.fft(signal)
+	•	Frequency Array:
+	•	freqs = np.fft.fftfreq(len(fft_signal), 1/sampling_rate)
+
+Summary
+
+	1.	Set up the time array based on your sampling rate and duration.
+	2.	Generate the signal (sinusoidal, audio, ECG) using sine functions.
+	3.	Apply FFT to the signal to transform it into the frequency domain.
+	4.	Map the FFT output to actual frequencies using np.fft.fftfreq.
+	5.	Visualize the frequency spectrum by plotting it.
